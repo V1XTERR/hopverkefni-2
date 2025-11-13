@@ -1,7 +1,11 @@
 # Barsvar.is – Beer, Bits & Questions
 1 Í hópverkefni eins og er.
 núna er ég bara að gera beinagrind og finna nafn fyrir síðuna
-so far BBQ(Beer Bits & Questions)
+so far "Barsvar"
+
+hugsa um að gera spurninga leik, tengt drykkjum, failar mild spurningu tekurðu sopa, failar easy tekurðu skot etc..
+síðan trump card þar sem þú gefur skot eða drykk...
+
 ## Slóðir
 
 - Forsíða: `/index.html`
