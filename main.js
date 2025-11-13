@@ -1,6 +1,7 @@
 // main.js
 import { questions } from './js/questions.js';
 
+const STORAGE_KEY = 'barsvar-current-index';
 let currentIndex = 0;
 
 function createElement(tag, options = {}) {
@@ -11,10 +12,33 @@ function createElement(tag, options = {}) {
   return el;
 }
 
+function saveCurrentIndex() {
+  try {
+    localStorage.setItem(STORAGE_KEY, String(currentIndex));
+  } catch (e) {
+    // ef localStorage er blocked/skítur, bara hunsa
+    console.error('Gat ekki vistað stöðu í localStorage', e);
+  }
+}
+
+function loadCurrentIndex() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw === null) return; // ekkert vistað áður
+
+    const parsed = Number(raw);
+    if (!Number.isNaN(parsed) && parsed >= 0 && parsed < questions.length) {
+      currentIndex = parsed;
+    }
+  } catch (e) {
+    console.error('Gat ekki lesið stöðu úr localStorage', e);
+  }
+}
+
 function renderQuestionView() {
   const root = document.querySelector('[data-quiz-root]');
   if (!root) {
-    // ef við erum á index.html og ekki á questions.html, þá gerist ekkert
+    // ef við erum á index.html, ekki gera neitt
     return;
   }
 
@@ -26,7 +50,7 @@ function renderQuestionView() {
 
   const title = createElement('h2', {
     className: 'quiz-title',
-    text: 'Spurningaferð',
+    text: 'SPURNINGAFERÐ',
   });
 
   const meta = createElement('p', {
@@ -62,6 +86,7 @@ function renderQuestionView() {
   prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
       currentIndex -= 1;
+      saveCurrentIndex();
       renderQuestionView();
     }
   });
@@ -69,6 +94,7 @@ function renderQuestionView() {
   nextBtn.addEventListener('click', () => {
     if (currentIndex < total - 1) {
       currentIndex += 1;
+      saveCurrentIndex();
       renderQuestionView();
     }
   });
@@ -83,6 +109,7 @@ function renderQuestionView() {
 }
 
 function init() {
+  loadCurrentIndex();
   renderQuestionView();
 }
 
