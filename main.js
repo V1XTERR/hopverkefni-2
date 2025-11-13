@@ -75,7 +75,7 @@ function renderQuestionView() {
 
   const hint = createElement('p', {
     className: 'quiz-hint',
-    text: 'Pro tip: Við bætum seinna við lyklaborða–stjórnun & fullscreen 😈',
+    text: 'Pro tip: hérna kemur mögulega tips!',
   });
 
   controls.append(prevBtn, nextBtn);
