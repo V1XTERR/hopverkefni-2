@@ -6,6 +6,14 @@ so far "Barsvar"
 hugsa um að gera spurninga leik, tengt drykkjum, failar mild spurningu tekurðu sopa, failar easy tekurðu skot etc..
 síðan trump card þar sem þú gefur skot eða drykk...
 
+## Prep
+
+- Gera drykkja síðu
+- Drykkja seðill
+- verð
+- Happyhour included
+- 
+
 ## Slóðir
 
 - Forsíða: `/index.html`
