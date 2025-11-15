@@ -12,11 +12,85 @@ function createElement(tag, options = {}) {
   return el;
 }
 
+/* ---------- HERO (forsíða) ---------- */
+
+function renderHero() {
+  const root = document.querySelector('[data-hero-root]');
+  if (!root) return; // ekki á forsíðu
+
+  root.innerHTML = '';
+
+  const inner = createElement('div', { className: 'hero-inner' });
+
+  // efri röðin
+  const brand = createElement('header', { className: 'hero-brand' });
+  const logo = createElement('h2', {
+    className: 'hero-logo',
+    text: 'BARSVAR',
+  });
+  const tagline = createElement('p', {
+    className: 'hero-tagline',
+    text: 'DRYKKIR · SPURNINGAR · OG FLEIRI DRYKKIR',
+  });
+  brand.append(logo, tagline);
+
+  // layout
+  const layout = createElement('div', { className: 'hero-layout' });
+
+  // texti
+  const textCol = createElement('div', { className: 'hero-text' });
+
+  const kicker = createElement('p', {
+    className: 'hero-kicker',
+    text: 'EINUM DRYKK NÆR SIGRI.',
+  });
+
+  const heading = createElement('h1', {
+    className: 'hero-heading',
+    text: 'Drykkir. Spurningar.',
+  });
+
+  const desc = createElement('p', {
+    className: 'hero-description',
+    text:
+      'Barsvar.is er vefur sem hendir á þig spurningum um bjór, vín og kokteila. ' +
+      'Fullkomið fyrir kvöld heima, fyrirpartý eða þegar barinn gleymdi að redda pub quiz. ' +
+      'Þú tekur quizið, við sjáum um spurningarnar.',
+  });
+
+  const actions = createElement('div', { className: 'hero-actions' });
+  const startLink = createElement('a', {
+    className: 'btn primary',
+    text: 'Start quiz',
+  });
+  startLink.href = './sidur/questions.html';
+
+  const note = createElement('p', {
+    className: 'hero-note',
+    text: '10+ spurningar – fleiri coming soon',
+  });
+
+  actions.append(startLink, note);
+  textCol.append(kicker, heading, desc, actions);
+
+  // mynd
+  const fig = createElement('figure', { className: 'hero-image' });
+  const img = document.createElement('img');
+  img.src = './images/barsvar4.png';
+  img.alt = 'Vinir að drekka og spila Barsvar-quiz á bar';
+  fig.appendChild(img);
+
+  layout.append(textCol, fig);
+  inner.append(brand, layout);
+  root.appendChild(inner);
+}
+
+/* ---------- QUIZ (spurningasíða) ---------- */
+
 function saveCurrentIndex() {
   try {
     localStorage.setItem(STORAGE_KEY, String(currentIndex));
   } catch (e) {
-    // ef localStorage er blocked/skítur, bara hunsa
     console.error('Gat ekki vistað stöðu í localStorage', e);
   }
 }
@@ -24,7 +98,7 @@ function saveCurrentIndex() {
 function loadCurrentIndex() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw === null) return; // ekkert vistað áður
+    if (raw === null) return;
 
     const parsed = Number(raw);
     if (!Number.isNaN(parsed) && parsed >= 0 && parsed < questions.length) {
@@ -37,10 +111,7 @@ function loadCurrentIndex() {
 
 function renderQuestionView() {
   const root = document.querySelector('[data-quiz-root]');
-  if (!root) {
-    // ef við erum á index.html, ekki gera neitt
-    return;
-  }
+  if (!root) return; // ekki á spurningasíðu
 
   root.innerHTML = '';
 
@@ -58,9 +129,10 @@ function renderQuestionView() {
     text: `Spurning ${current} af ${total}`,
   });
 
-  // Progress bar
   const progress = createElement('div', { className: 'quiz-progress' });
-  const progressBar = createElement('div', { className: 'quiz-progress-bar' });
+  const progressBar = createElement('div', {
+    className: 'quiz-progress-bar',
+  });
   progressBar.style.width = `${(current / total) * 100}%`;
   progress.appendChild(progressBar);
 
@@ -108,7 +180,13 @@ function renderQuestionView() {
   root.append(title, meta, progress, questionP, controls, hint);
 }
 
+/* ---------- INIT ---------- */
+
 function init() {
+  // Forsíða
+  renderHero();
+
+  // Spurningasíða
   loadCurrentIndex();
   renderQuestionView();
 }

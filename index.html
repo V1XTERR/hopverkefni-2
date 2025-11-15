@@ -13,52 +13,21 @@
         <nav class="site-nav">
           <a href="./index.html">Forsíða</a>
           <a href="./sidur/questions.html">Spurningar</a>
-          <!-- seinna: <a href="./create.html">Búa til spurningar</a> -->
+          <a href="./sidur/menu.html">Drykkjuseðill</a>
         </nav>
       </div>
     </header>
 
     <main class="site-main">
-      <section class="hero">
-  <div class="hero-inner">
-    <!-- Efri röðin: logo + tagline -->
-    <header class="hero-brand">
-      <h2 class="hero-logo">BARSVAR</h2>
-      <p class="hero-tagline">DRYKKIR · SPURNINGAR · OG FLEIRI DRYKKIR</p>
-    </header>
-
-    <!-- Tvær dálkaskipanir: texti vinstra megin, mynd hægra megin -->
-    <div class="hero-layout">
-      <div class="hero-text">
-        <p class="hero-kicker">EINUM DRYKK NÆR SIGRI.</p>
-
-        <h1 class="hero-heading">
-          Drykkir. Spurningar.
-        </h1>
-
-        <p class="hero-description">
-          Barsvar.is er vefur sem hendir á þig spurningum um bjór, vín og kokteila.
-          Fullkomið fyrir kvöld heima, fyrirpartý eða þegar barinn gleymdi að redda
-          pub quiz. Þú tekur quizið, við sjáum um spurningarnar.
-        </p>
-
-        <div class="hero-actions">
-          <a href="./sidur/questions.html" class="btn primary">Start quiz</a>
-          <p class="hero-note">10+ spurningar – fleiri coming soon</p>
-        </div>
-      </div>
-
-      <figure class="hero-image">
-        <img src="./images/barsvar4.png" alt="Vinir að drekka og spila barsvar-quiz á bar" />
-      </figure>
-    </div>
-  </div>
-</section>
-
+      <!-- JS teiknar allt innihald hér -->
+      <section class="hero" data-hero-root></section>
     </main>
 
     <footer class="site-footer">
       © 2025 Barsvar.is – Viktor 
     </footer>
+
+    <!-- sama entry og á spurningasíðunni -->
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
