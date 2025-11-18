@@ -1,4 +1,3 @@
-// js/menu.js
 
 function createEl(tag, options = {}) {
   const { className, text } = options;

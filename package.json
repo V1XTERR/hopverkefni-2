@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "1 Í hópverkefni eins og er. núna er ég bara að gera beinagrind og finna nafn fyrir síðuna so far \"Barsvar\"",
   "main": "main.js",
- "scripts": {
-  "lint:js": "eslint .",
-  "lint:css": "stylelint \"**/*.css\"",
-  "lint": "npm run lint:js && npm run lint:css"
-},
-
-"repository": {
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint": "npm run lint:js && npm run lint:css"
+  },
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/V1XTERR/hopverkefni-2.git"
   },

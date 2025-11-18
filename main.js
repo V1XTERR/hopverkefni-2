@@ -53,7 +53,7 @@ function renderHero() {
   const desc = createElement("p", {
     className: "hero-description",
     text:
-      "Barsvar.is er vefur sem hendir á þig spurningum um bjór, vín og kokteila. " +
+      "Barsvar.is er vefur sem hendir á þig spurningum í drykkjuleik " +
       "Fullkomið fyrir kvöld heima, fyrirpartý eða þegar barinn gleymdi að redda pub quiz. " +
       "Þú tekur quizið, við sjáum um spurningarnar.",
   });
@@ -67,7 +67,7 @@ function renderHero() {
 
   const note = createElement("p", {
     className: "hero-note",
-    text: "10+ spurningar – fleiri coming soon",
+    text: "Taktu sopa fyrir hvert vitlaust og rétt svar!",
   });
 
   actions.append(startLink, note);
