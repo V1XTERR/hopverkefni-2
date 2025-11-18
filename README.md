@@ -3,33 +3,29 @@
 núna er ég bara að gera beinagrind og finna nafn fyrir síðuna
 so far "Barsvar"
 
-hugsa um að gera spurninga leik, tengt drykkjum, failar mild spurningu tekurðu sopa, failar easy tekurðu skot etc..
-síðan trump card þar sem þú gefur skot eða drykk...
+hugsa um að gera spurninga leik, tengt drykkjum
+
+síðan líka auka síðu með seðli
 
 ## Prep
 
-- Gera drykkja síðu
+- Gera forsíðu síðu
+- Spurningar
 - Drykkja seðill
-- verð
-- Happyhour included
-- 
+
+
 
 ## Slóðir
 
 - Forsíða: `/index.html`
 - Spurningar: `/sidur/questions.html`
-
+- Seðill `/sidur/menu.html`
 ## Skrár
 
-- `index.html` – forsíða m
+- `index.html` – forsíða 
 - `sidur/questions.html` – spurninga­síðan
-- `main.js` – spurningavél (next/prev, progress bar)
+- `main.js` – main java
 - `js/questions.js` – gögn (spurningar)
 - `styles.css` – útlit
+- `sidur/menu.html` - seðill
 
-## Features (núna)
-
-- Sýnir eina spurningu í einu
-- Næsta / fyrri spurning
-- Progress bar á spurninga­síðu
--(væntanlegt, langar að gera ehv fl)

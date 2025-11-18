@@ -413,6 +413,17 @@ button:disabled {
   color: #d1d5db;
 }
 
+.quiz-answer {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: #a5b4fc; /* smá neon vibe */
+}
+
+.quiz-answer--hidden {
+  display: none;
+}
+
+
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 800px) {
